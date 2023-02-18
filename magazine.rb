@@ -1,6 +1,7 @@
 class Magazine
 
     attr_accessor :name, :category
+
     @@all = []
 
     def initialize(name, category)
@@ -8,8 +9,17 @@ class Magazine
         @category = category
         @@all << self
     end
+
     def self.all
         @@all
+    end
+
+    def articles
+        Article.all.select { |article| article.magazine == self }
+    end
+    
+    def contributors
+        self.articles.map { |article|.author}.uniq
     end
 
     def info
