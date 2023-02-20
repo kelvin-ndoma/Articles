@@ -41,14 +41,17 @@ class Magazine
     
 end
 
-# vogue = Magazine.new("Vogue", "Fashion")
-# nat_geo = Magazine.new("National Geographic", "Science and Nature")
-# wired = Magazine.new("Wired", "Technology")
+vogue = Magazine.new("Vogue", "Fashion")
+nat_geo = Magazine.new("National Geographic", "Science and Nature")
 
-# # Output the list of all magazines
-# puts Magazine.all.inspect
 
-# # Output the name and category of a specific magazine
-# puts vogue.name
-# puts vogue.category
+# Output the list of all magazines
+puts Magazine.all.inspect
+
+# Output the name and category of a specific magazine
+puts vogue.name
+puts vogue.category
+
+puts nat_geo.name
+puts nat_geo.category
 

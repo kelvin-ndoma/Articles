@@ -49,19 +49,19 @@ class Article
   end
 end
 
-# # Example usage
-# author1 = Author.new("J.K. Rowling")
-# author2 = Author.new("Stephen King")
 
-# magazine1 = Magazine.new("Wired", "Technology")
-# magazine2 = Magazine.new("National Geographic", "Science")
-# magazine3 = Magazine.new("Vanity Fair", "Culture")
+author1 = Author.new("J.K. Rowling")
+author2 = Author.new("Stephen King")
 
-# author1.add_article(magazine1, "The Future of Technology")
-# author1.add_article(magazine2, "The Science of Wildlife Conservation")
-# author2.add_article(magazine3, "Hollywood's Impact on Culture")
+magazine1 = Magazine.new("Wired", "Technology")
+magazine2 = Magazine.new("National Geographic", "Science")
+magazine3 = Magazine.new("Vanity Fair", "Culture")
 
-# p author1.magazines
-# p author1.topic_areas
-# p author2.topic_areas
+author1.add_article(magazine1, "The Future of Technology")
+author1.add_article(magazine2, "The Science of Wildlife Conservation")
+author2.add_article(magazine3, "Hollywood's Impact on Culture")
+
+puts author1.magazines
+puts author1.topic_areas
+puts author2.topic_areas
 
