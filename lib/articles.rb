@@ -1,34 +1,30 @@
 class Article
-    # reader methods for the author, magazine, and title instance variables
-    attr_reader :author, :magazine, :title
+  attr_reader :author, :magazine, :title
+
+  @@all = []
+
+  def initialize(author, magazine, title)
+    @author = author
+    @magazine = magazine
+    @title = title
+    @@all << self
+  end
+
+  def self.all
+    @@all.dup.freeze
+  end
+
   
-    # class variable to keep track of all Article instances that are created
-    @@all = []
-  
-    #initializes an Article instance with an author, magazine, and title
-    def initialize(author, magazine, title)
-      @author = author
-      @magazine = magazine
-      @title = title
-      # add the new Article instance to the array of all Article instances
-      @@all << self
-    end
-  
-    # class method to access the array of all Article instances
-    def self.all
-      @@all
-    end
-  
-    # instance method that prints out the author, magazine, and title of the Article instance
+    # instance method that prints out the author, magazine, and title of the Article instance at once 
     def info
       puts "#{author} wrote '#{title}' for '#{magazine}'"
     end
-  end
+end
   
-  # create a few instances of the Article class
-  article1 = Article.new("Alice", "Fashion Monthly", "The Latest Trends in High Heels")
-  article2 = Article.new("Bob", "Nature's Best", "The Most Beautiful Beaches in the World")
-  article3 = Article.new("Charlie", "Tech Now", "How to Secure Your Online Accounts")
+  # create  instances of the Article class
+  article1 = Article.new("kevo", "Fashion", "Latest vitenges")
+  article2 = Article.new("Ndoma", "Nature's Best", "The Most Beautiful Beaches in the Kitui")
+  article3 = Article.new("Mutua", "Tech wizards daah!", "How to Use AIs")
   
   article1.info
   article2.info

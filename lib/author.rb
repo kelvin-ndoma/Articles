@@ -16,12 +16,12 @@ class Author
     @articles.dup.freeze
   end
 
-  def topic_areas
-    magazines.map(&:category).uniq
+  def magazines
+    @articles.map(&:magazine).uniq
   end
 
-  def magazines
-    articles.map(&:magazine).uniq
+  def topic_areas
+    @articles.map { |article| article.magazine.category }.uniq
   end
 end
 
@@ -37,6 +37,18 @@ class Magazine
   def add_article(article)
     @articles << article
   end
+
+  def contributors
+    articles.map(&:author).uniq
+  end
+
+  def article_titles
+    articles.map(&:title)
+  end
+
+  def contributing_authors
+    articles.map(&:author).uniq
+  end
 end
 
 class Article
@@ -48,20 +60,4 @@ class Article
     @title = title
   end
 end
-
-
-author1 = Author.new("J.K. Rowling")
-author2 = Author.new("Stephen King")
-
-magazine1 = Magazine.new("Wired", "Technology")
-magazine2 = Magazine.new("National Geographic", "Science")
-magazine3 = Magazine.new("Vanity Fair", "Culture")
-
-author1.add_article(magazine1, "The Future of Technology")
-author1.add_article(magazine2, "The Science of Wildlife Conservation")
-author2.add_article(magazine3, "Hollywood's Impact on Culture")
-
-puts author1.magazines
-puts author1.topic_areas
-puts author2.topic_areas
 
